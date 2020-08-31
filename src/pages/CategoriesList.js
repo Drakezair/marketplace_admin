@@ -26,7 +26,7 @@ export function CategoriesList(){
     }, [])
 
     const handleDelete = async (id) =>{
-        firebase.database().ref('wallpapers').child(id).remove()
+        firebase.database().ref('categories').child(id).remove()
         window.location.reload();
     }
 

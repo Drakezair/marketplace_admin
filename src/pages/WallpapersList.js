@@ -48,7 +48,7 @@ export function WallpapersList(){
                                     <TableRow key={i} >
                                         <TableCell >{item.name}</TableCell>
                                         <TableCell >
-                                            <DeleteForeverIcon onClick={()=>handleDelete(keys[i])} tyle={{cursor: "pointer"}} color="error" />
+                                            <DeleteForeverIcon onClick={()=>handleDelete(keys[i])} style={{cursor: "pointer"}} color="error" />
                                         </TableCell>
                                     </TableRow>
                                 );

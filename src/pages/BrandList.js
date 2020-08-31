@@ -25,7 +25,7 @@ export function BrandList(){
     },[])
 
     const handleDelete = async (id) =>{
-        firebase.database().ref('wallpapers').child(id).remove()
+        firebase.database().ref('brands').child(id).remove()
         window.location.reload();
     }
 
