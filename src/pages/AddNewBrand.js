@@ -56,6 +56,7 @@ export function AddNewBrand(){
                 <TextField onChange={(e)=>handleState('desc', e.target.value)} placeholder='Descripción' variant="outlined" fullWidth style={{margin: 10}} />
                 <TextField onChange={(e)=>handleState('address', e.target.value)} placeholder='Dirección' variant="outlined" fullWidth style={{margin: 10}} />
                 <TextField onChange={(e)=>handleState('phone', e.target.value)} placeholder='Telefono' type='number' variant="outlined" fullWidth style={{margin: 10}} />
+                <TextField onChange={(e)=>handleState('was', e.target.value)} placeholder='WhatsApp' type='number' variant="outlined" fullWidth style={{margin: 10}} />
                 <TextField onChange={(e)=>handleState('instagram', e.target.value)} placeholder='Instagram' variant="outlined" fullWidth style={{margin: 10}} />
                 <FormControl fullWidth>
         <InputLabel id="demo-simple-select-label">Categoria</InputLabel>
