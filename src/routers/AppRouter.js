@@ -11,6 +11,10 @@ import AddAPhotoIcon from '@material-ui/icons/AddAPhoto';
 import ImageIcon from '@material-ui/icons/Image';
 
 import { BrandList, AddNewBrand, AddNewCategory, CategoriesList, AddNewWallpaper, WallpapersList } from '../pages';
+import { AddNewRegion } from '../pages/AddNewRegion';
+import { RegionList } from '../pages/RegionList';
+import { EditNewBrand } from '../pages/EditNewBrand';
+import { EditNewCategory } from '../pages/EditNewCategory';
 
 export default function AppRouter(){
 
@@ -57,16 +61,32 @@ export default function AppRouter(){
                                 <ListItemText primary={"Crear anuncio"} />
                             </ListItem>
                         </Link>
+                        <Link to='/regions' style={{textDecoration: 'none', color: "black"}} >
+                            <ListItem button >
+                                <ListItemIcon><AddAPhotoIcon/></ListItemIcon>
+                                <ListItemText primary={"Region"} />
+                            </ListItem>
+                        </Link>
+                        <Link to='/add-regions' style={{textDecoration: 'none', color: "black"}} >
+                            <ListItem button >
+                                <ListItemIcon><AddAPhotoIcon/></ListItemIcon>
+                                <ListItemText primary={"Crear Regiones"} />
+                            </ListItem>
+                        </Link>
                     </List>
                 </div>
                 <div style={{marginLeft: draweWidth}} >
                     <Switch>
                         <Route exact path="/" ><BrandList/></Route>
                         <Route path="/add-brand" ><AddNewBrand/></Route>
+                        <Route path="/brand/:id" component={EditNewBrand}/>
+                        <Route path="/categories/:id" component={EditNewCategory} />
                         <Route path="/categories" ><CategoriesList/></Route>
                         <Route path="/add-category" ><AddNewCategory/></Route>
                         <Route path="/wallpaper" ><WallpapersList/></Route>
                         <Route path="/add-wallpaper" ><AddNewWallpaper/></Route>
+                        <Route path="/regions" ><RegionList/></Route>
+                        <Route path="/add-regions" ><AddNewRegion/></Route>
                     </Switch>
                 </div>
             </div>

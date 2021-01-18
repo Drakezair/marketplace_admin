@@ -4,57 +4,52 @@ import * as firebase from "firebase/app";
 import  'firebase/database';
 
 import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
-import EditIcon from '@material-ui/icons/Edit';
 
-export function CategoriesList(){
+export function RegionList(){
 
-    const [Categories, setCategories] = useState([]);
+    const [brands, setBrands] = useState([]);
     const [keys, setKeys] = useState([]);
-
     useEffect(()=>{
         async function initFetch(){
 
             let tempArr = []
-            await firebase.database().ref('categories').once('value',(snapshot)=>{
+            await firebase.database().ref('regiones').once('value',(snapshot)=>{
                 Object.keys(snapshot.val()).map((item)=>tempArr.push(snapshot.val()[item]))
                 setKeys(Object.keys(snapshot.val()))
             })
-            setCategories(tempArr)
+            setBrands(tempArr)
         }
 
         initFetch()
 
-    }, [])
-
-    const handleEdit = async (id) =>{
-        window.open('/categories/'+id, '_self')
-    }
+    },[])
 
     const handleDelete = async (id) =>{
-        firebase.database().ref('categories').child(id).remove()
+        firebase.database().ref('regiones').child(id).remove()
         window.location.reload();
     }
 
     return(
         <div style={{display:'flex', flexDirection: 'column', alignItems: 'center'}}>
-            <h1>Categorias</h1>
+            <h1>Marcas</h1>
             <Container>
                 <Table >
                     <TableHead>
                         <TableRow>
                             <TableCell ><strong>Nombre</strong></TableCell>
+                            <TableCell ><strong>codigo</strong></TableCell>
                             <TableCell ><strong>Acciones</strong></TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
                         {
-                            Categories.map((item, i)=>{
+                            brands.map((item, i)=>{
                                 return(
                                     <TableRow key={i} >
                                         <TableCell >{item.name}</TableCell>
+                                        <TableCell >{item.code}</TableCell>
                                         <TableCell >
-                                            <DeleteForeverIcon onClick={()=>handleDelete(keys[i])} style={{cursor: "pointer"}} color="error" />
-                                            <EditIcon onClick={()=>{handleEdit(keys[i])}} style={{cursor: "pointer"}}  />
+                                            <DeleteForeverIcon onClick={()=>{handleDelete(keys[i])}} style={{cursor: "pointer"}} color="error" />
                                         </TableCell>
                                     </TableRow>
                                 );

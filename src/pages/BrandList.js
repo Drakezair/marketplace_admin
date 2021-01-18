@@ -4,8 +4,8 @@ import * as firebase from "firebase/app";
 import  'firebase/database';
 
 import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
-
-export function BrandList(){
+import EditIcon from '@material-ui/icons/Edit';
+export function BrandList({navigation}){
 
     const [brands, setBrands] = useState([]);
     const [keys, setKeys] = useState([]);
@@ -27,6 +27,10 @@ export function BrandList(){
     const handleDelete = async (id) =>{
         firebase.database().ref('brands').child(id).remove()
         window.location.reload();
+    }
+
+    const handleEdit = async (id) =>{
+        window.open('/brand/'+id, '_self')
     }
 
     return(
@@ -56,6 +60,7 @@ export function BrandList(){
                                         <TableCell >{item.instagram}</TableCell>
                                         <TableCell >
                                             <DeleteForeverIcon onClick={()=>{handleDelete(keys[i])}} style={{cursor: "pointer"}} color="error" />
+                                            <EditIcon onClick={()=>{handleEdit(keys[i])}} style={{cursor: "pointer"}}  />
                                         </TableCell>
                                     </TableRow>
                                 );
