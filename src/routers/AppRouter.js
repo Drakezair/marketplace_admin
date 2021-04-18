@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 
 import { ListItem, ListItemIcon, ListItemText, List } from '@material-ui/core';
@@ -17,6 +17,14 @@ import { EditNewBrand } from '../pages/EditNewBrand';
 import { EditNewCategory } from '../pages/EditNewCategory';
 
 export default function AppRouter(){
+
+    useEffect(()=>{
+        var person = prompt("Contraseña", "");
+
+        if( person !== "VtN68q3sUj7BOPwpASt5oelcz6xvX2mFmgZneo9") {
+            window.location.reload()
+        } 
+    },[])
 
     const draweWidth = 200
 
