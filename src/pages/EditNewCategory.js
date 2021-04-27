@@ -26,7 +26,7 @@ export function EditNewCategory({match}){
             })
         }
         initFetch();
-    })
+    },[])
 
     const handleForm = (e) => {
         e.preventDefault();

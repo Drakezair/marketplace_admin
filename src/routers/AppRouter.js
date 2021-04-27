@@ -24,7 +24,7 @@ export default function AppRouter(){
         if( person !== "VtN68q3sUj7BOPwpASt5oelcz6xvX2mFmgZneo9") {
             window.location.reload()
         } 
-    },[])
+    },[false])
 
     const draweWidth = 200
 
